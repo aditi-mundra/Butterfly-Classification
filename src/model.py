@@ -1,9 +1,8 @@
 from tensorflow.keras.applications import Xception
 
 from tensorflow.keras.layers import (
-    AveragePooling2D,
+    GlobalAveragePooling2D,
     Dropout,
-    Flatten,
     Dense
 )
 
@@ -26,11 +25,7 @@ def build_xception_model(
 
     x = base_model.output
 
-    x = AveragePooling2D(
-        pool_size=(4, 4)
-    )(x)
-
-    x = Flatten()(x)
+    x = GlobalAveragePooling2D()(x)
 
     x = Dense(
         128,
