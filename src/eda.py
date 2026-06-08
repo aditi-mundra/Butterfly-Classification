@@ -7,7 +7,7 @@ def plot_class_distribution(labels):
 
     counts = Counter(labels)
 
-    plt.figure(figsize=(12, 5))
+    fig = plt.figure(figsize=(12, 5))
 
     sns.barplot(
         x=list(counts.keys()),
@@ -19,11 +19,11 @@ def plot_class_distribution(labels):
     plt.ylabel("Number of Images")
 
     plt.tight_layout()
-    plt.show()
+    return fig
 
 def show_sample_images(images, labels, n=9):
 
-    plt.figure(figsize=(10,10))
+    fig = plt.figure(figsize=(10,10))
 
     indices = random.sample(
         range(len(images)),
@@ -42,7 +42,7 @@ def show_sample_images(images, labels, n=9):
 
     plt.tight_layout()
 
-    plt.show()
+    return fig
 
 def save_current_figure(path):
 

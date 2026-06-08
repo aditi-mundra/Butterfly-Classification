@@ -3,7 +3,7 @@ import matplotlib.pyplot as plt
 
 def plot_training_history(history):
 
-    plt.figure(figsize=(10, 5))
+    fig = plt.figure(figsize=(10, 5))
 
     plt.plot(
         history.history["accuracy"],
@@ -25,12 +25,12 @@ def plot_training_history(history):
 
     plt.tight_layout()
 
-    plt.show()
+    return fig
 
 
 def plot_loss_history(history):
 
-    plt.figure(figsize=(10, 5))
+    fig = plt.figure(figsize=(10, 5))
 
     plt.plot(
         history.history["loss"],
@@ -52,14 +52,14 @@ def plot_loss_history(history):
 
     plt.tight_layout()
 
-    plt.show()
+    return fig
 
 def plot_confusion_matrix(
     cm,
     class_names
 ):
 
-    plt.figure(figsize=(10,8))
+    fig = plt.figure(figsize=(10,8))
 
     sns.heatmap(
         cm,
@@ -76,4 +76,4 @@ def plot_confusion_matrix(
 
     plt.tight_layout()
 
-    plt.show()
+    return fig

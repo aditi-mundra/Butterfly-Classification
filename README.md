@@ -4,6 +4,7 @@
 ![TensorFlow](https://img.shields.io/badge/TensorFlow-2.x-orange)
 ![Computer Vision](https://img.shields.io/badge/Computer%20Vision-Transfer%20Learning-success)
 
+
 ## Overview
 
 This project builds an end-to-end deep learning pipeline for butterfly species classification using transfer learning and computer vision techniques.
@@ -103,10 +104,6 @@ Softmax Output (10 Classes)
 
 ![Training Accuracy](outputs/figures/training_accuracy.png)
 
-### Training Loss
-
-![Training Loss](outputs/figures/training_loss.png)
-
 ### Confusion Matrix
 
 ![Confusion Matrix](outputs/figures/confusion_matrix.png)
@@ -137,7 +134,6 @@ butterfly-classification/
 │
 ├── README.md
 ├── requirements.txt
-└── LICENSE
 ```
 
 ---
@@ -157,8 +153,6 @@ butterfly-classification/
 
 ## Future Improvements
 
-* Fine-tuning unfrozen Xception layers
-* Hyperparameter optimization
 * Grad-CAM visualizations
 * Model deployment with Streamlit
 * Real-time butterfly classification interface
