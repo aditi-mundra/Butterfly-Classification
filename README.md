@@ -29,3 +29,10 @@ butterfly-classification/
 ## Objective
 
 The goal of this project is to classify butterfly species from images using convolutional neural networks and transfer learning.
+
+## Current Features
+
+- Project structure setup
+- Centralized configuration management
+- Dataset loading utilities
+- Directory management utilities
