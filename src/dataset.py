@@ -1,43 +1,42 @@
-import os
-import cv2
-import numpy as np
+from src.data_loader import load_leeds_dataset
 
-from src.config import IMAGE_SIZE
+from src.preprocessing import (
+    normalize_images,
+    encode_labels,
+    one_hot_encode,
+    create_train_test_split
+)
 
+def prepare_dataset(
+    dataset_path="../data/raw/leedsbutterfly/images"
+):
 
-def load_leeds_dataset(image_dir):
-    """
-    Load Leeds Butterfly Dataset.
+    images, labels = load_leeds_dataset(
+        dataset_path
+    )
 
-    Labels are extracted from the first
-    three digits of the filename.
+    images = normalize_images(images)
 
-    Example:
+    encoded_labels, encoder = encode_labels(
+        labels
+    )
 
-    0010001.png -> class 001
-    0020012.png -> class 002
-    """
+    categorical_labels = one_hot_encode(
+        encoded_labels
+    )
 
-    images = []
-    labels = []
+    X_train, X_test, y_train, y_test = (
+        create_train_test_split(
+            images,
+            categorical_labels
+        )
+    )
 
-    filenames = sorted(os.listdir(image_dir))
-
-    for filename in filenames:
-
-        image_path = os.path.join(image_dir, filename)
-
-        image = cv2.imread(image_path)
-
-        if image is None:
-            continue
-
-        image = cv2.cvtColor(image, cv2.COLOR_BGR2RGB)
-        image = cv2.resize(image, IMAGE_SIZE)
-
-        label = filename[:3]
-
-        images.append(image)
-        labels.append(label)
-
-    return np.array(images), np.array(labels)
+    return (
+        X_train,
+        X_test,
+        y_train,
+        y_test,
+        labels,
+        encoder
+    )
