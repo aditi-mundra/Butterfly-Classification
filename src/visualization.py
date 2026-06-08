@@ -1,5 +1,5 @@
+import seaborn as sns
 import matplotlib.pyplot as plt
-
 
 def plot_training_history(history):
 
@@ -49,6 +49,30 @@ def plot_loss_history(history):
     plt.ylabel("Loss")
 
     plt.legend()
+
+    plt.tight_layout()
+
+    plt.show()
+
+def plot_confusion_matrix(
+    cm,
+    class_names
+):
+
+    plt.figure(figsize=(10,8))
+
+    sns.heatmap(
+        cm,
+        annot=True,
+        fmt="d",
+        cmap="Blues",
+        xticklabels=class_names,
+        yticklabels=class_names
+    )
+
+    plt.xlabel("Predicted")
+    plt.ylabel("Actual")
+    plt.title("Confusion Matrix")
 
     plt.tight_layout()
 
