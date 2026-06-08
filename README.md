@@ -32,7 +32,6 @@ The goal of this project is to classify butterfly species from images using conv
 
 ## Current Features
 
-- Project structure setup
-- Centralized configuration management
+- Configuration management
 - Dataset loading utilities
-- Directory management utilities
+- Image preprocessing utilities
