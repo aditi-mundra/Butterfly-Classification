@@ -53,3 +53,21 @@ The goal of this project is to classify butterfly species from images using conv
 - One-Hot Encoding
 - Stratified Train/Test Split
 - Image Normalization
+
+## Model Architecture
+
+- Backbone: Xception (ImageNet Pretrained)
+- Transfer Learning
+- Global Feature Extraction
+- Dense Classification Head
+- Dropout Regularization
+
+## Model
+
+Backbone: Xception (ImageNet Pretrained)
+
+- Transfer Learning
+- Frozen Feature Extractor
+- Dense Classification Head
+- Dropout Regularization
+- 10 Butterfly Classes
