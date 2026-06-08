@@ -5,43 +5,30 @@ import numpy as np
 from src.config import IMAGE_SIZE
 
 
-def load_images_from_directory(directory):
-    """
-    Loads images and labels from a dataset directory.
-
-    Expected structure:
-
-    dataset/
-    ├── class_1/
-    ├── class_2/
-    └── class_3/
-    """
-
+def load_leeds_dataset(image_dir):
     images = []
     labels = []
 
-    classes = sorted(os.listdir(directory))
+    filenames = sorted(os.listdir(image_dir))
 
-    for label_idx, class_name in enumerate(classes):
+    for filename in filenames:
 
-        class_path = os.path.join(directory, class_name)
+        image_path = os.path.join(image_dir, filename)
 
-        if not os.path.isdir(class_path):
+        if not os.path.isfile(image_path):
             continue
 
-        for image_name in os.listdir(class_path):
+        image = cv2.imread(image_path)
 
-            image_path = os.path.join(class_path, image_name)
+        if image is None:
+            continue
 
-            image = cv2.imread(image_path)
+        image = cv2.cvtColor(image, cv2.COLOR_BGR2RGB)
+        image = cv2.resize(image, IMAGE_SIZE)
 
-            if image is None:
-                continue
+        label = filename[:3]
 
-            image = cv2.cvtColor(image, cv2.COLOR_BGR2RGB)
-            image = cv2.resize(image, IMAGE_SIZE)
+        images.append(image)
+        labels.append(label)
 
-            images.append(image)
-            labels.append(label_idx)
-
-    return np.array(images), np.array(labels), classes
+    return np.array(images), np.array(labels)

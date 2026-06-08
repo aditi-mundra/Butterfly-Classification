@@ -30,8 +30,19 @@ butterfly-classification/
 
 The goal of this project is to classify butterfly species from images using convolutional neural networks and transfer learning.
 
-## Current Features
+## Dataset Overview
 
-- Configuration management
-- Dataset loading utilities
-- Image preprocessing utilities
+- Dataset: Leeds Butterfly Dataset
+- Images: 832
+- Species: 10
+- Image Resolution Used: 224 × 224
+
+## Exploratory Data Analysis
+
+### Class Distribution
+
+![Class Distribution](outputs/figures/class_distribution.png)
+
+### Sample Butterfly Images
+
+![Sample Images](outputs/figures/sample_images.png)
