@@ -46,3 +46,10 @@ The goal of this project is to classify butterfly species from images using conv
 ### Sample Butterfly Images
 
 ![Sample Images](outputs/figures/sample_images.png)
+
+## Data Preparation
+
+- Label Encoding
+- One-Hot Encoding
+- Stratified Train/Test Split
+- Image Normalization
